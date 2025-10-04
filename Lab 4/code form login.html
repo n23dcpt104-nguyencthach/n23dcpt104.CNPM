@@ -1,1 +1,191 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Đăng nhập hoặc tạo tài khoản</title>
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background-color: #f5f6fa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .login-box {
+      background: #fff;
+      width: 400px;
+      padding: 35px 40px;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      font-size: 20px;
+      color: #000;
+      margin-bottom: 5px;
+    }
+
+    .subtext {
+      color: #333;
+      font-size: 14px;
+      margin-bottom: 25px;
+    }
+
+    .btn {
+      width: 100%;
+      border: none;
+      border-radius: 25px;
+      padding: 10px;
+      font-size: 15px;
+      margin: 6px 0;
+      cursor: pointer;
+      font-weight: 500;
+    }
+
+    .google {
+      background-color: #4285f4;
+      color: white;
+    }
+
+    .facebook {
+      background-color: #fff;
+      color: #1877f2;
+      border: 1px solid #1877f2;
+    }
+
+    .apple {
+      background-color: #000;
+      color: white;
+    }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      text-align: center;
+      margin: 20px 0;
+      color: #777;
+      font-size: 14px;
+    }
+
+    .divider::before,
+    .divider::after {
+      content: "";
+      flex: 1;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .divider:not(:empty)::before {
+      margin-right: 10px;
+    }
+
+    .divider:not(:empty)::after {
+      margin-left: 10px;
+    }
+
+    label {
+      display: block;
+      font-size: 14px;
+      color: #333;
+      margin-bottom: 5px;
+      text-align: left;
+    }
+
+    input[type="email"] {
+      width: 100%;
+      padding: 10px;
+      border-radius: 25px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+      outline: none;
+    }
+
+    .continue {
+      background-color: #e6e8f0;
+      color: #777;
+      margin-top: 15px;
+      cursor: pointer;
+    }
+
+    .continue:hover {
+      background-color: #d4d6dc;
+    }
+
+    .other {
+      color: #006ce4;
+      font-size: 14px;
+      text-align: center;
+      margin-top: 15px;
+      cursor: pointer;
+    }
+
+    .terms {
+      font-size: 12px;
+      color: #555;
+      text-align: center;
+      margin-top: 20px;
+      line-height: 1.5;
+    }
+
+    .terms a {
+      color: #006ce4;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-box">
+    <h2>Đăng nhập hoặc tạo tài khoản</h2>
+    <p class="subtext">
+      Đăng ký miễn phí hoặc đăng nhập để nhận được các ưu đãi và quyền lợi hấp dẫn!
+    </p>
+
+    <button class="btn google">🔍 Đăng nhập bằng Google</button>
+    <button class="btn facebook">📘 Đăng nhập với Facebook</button>
+    <button class="btn apple">🍎 Đăng nhập bằng Apple</button>
+
+    <div class="divider">
+      <span>hoặc</span>
+    </div>
+
+    <form id="loginForm">
+      <label for="email">Email</label>
+      <input type="email" id="email" placeholder="id@email.com" />
+      <button type="submit" class="btn continue">Tiếp tục</button>
+    </form>
+
+    <p class="other">Đăng nhập bằng cách khác ▼</p>
+
+    <p class="terms">
+      Khi đăng nhập, tôi đồng ý với các 
+      <a href="#">Điều khoản sử dụng</a> 
+      và 
+      <a href="#">Chính sách bảo mật</a> 
+      của Agoda.
+    </p>
+  </div>
+
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const email = document.getElementById("email").value.trim();
+
+      if (email === "") {
+        alert("Vui lòng nhập địa chỉ email!");
+        return;
+      }
+
+      const emailPattern = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
+      if (!emailPattern.test(email)) {
+        alert("Email không hợp lệ!");
+        return;
+      }
+
+      alert("Email hợp lệ. Tiếp tục đăng nhập...");
+    });
+  </script>
+</body>
+</html>
 
